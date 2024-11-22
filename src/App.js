@@ -40,7 +40,7 @@ function App() {
                 {/* Edit Page ( Only for the creator )*/}
                 <Route path='/edit' element={<Edit />} />
                 {/*Details Page*/}
-                <Route path='/catalog/:gameId' element={<GameDetails />} />
+                <Route path='/catalog/:gameId' element={<GameDetails games={games} />} />
                 {/* Catalogue */}
                 <Route path='/catalog' element={<Catalog games={games} />} />
             </Routes>
