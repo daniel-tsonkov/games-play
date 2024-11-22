@@ -10,7 +10,7 @@ import { Login } from './components/Login/Login';
 import { Register } from './components/Register/Register';
 import { CreateGame } from './components/CreateGame/CreateGame';
 import { Edit } from './components/Edit/Edit';
-import { Details } from './components/Details/Details';
+import { GameDetails } from './components/GameDetails/GameDetails';
 import { Catalog } from './components/Catalog/Catalog';
 
 function App() {
@@ -40,7 +40,7 @@ function App() {
                 {/* Edit Page ( Only for the creator )*/}
                 <Route path='/edit' element={<Edit />} />
                 {/*Details Page*/}
-                <Route path='/details' element={<Details />} />
+                <Route path='/catalog/:gameId' element={<GameDetails />} />
                 {/* Catalogue */}
                 <Route path='/catalog' element={<Catalog games={games} />} />
             </Routes>
