@@ -30,6 +30,13 @@ function App() {
         })
     }
 
+    const addGameHandler = (gameData) => {
+        setGames(state => [
+            ...state,
+            gameData,
+        ])
+    }
+
     useEffect(() => {
         gameServices.getAll()
             .then(result => {
@@ -50,7 +57,7 @@ function App() {
                 {/* Register Page ( Only for Guest users ) */}
                 <Route path='/register' element={<Register />} />
                 {/* Create Page ( Only for logged-in users ) */}
-                <Route path='/create' element={<CreateGame />} />
+                <Route path='/create' element={<CreateGame addGameHandler={addGameHandler} />} />
                 {/* Edit Page ( Only for the creator )*/}
                 <Route path='/edit' element={<Edit />} />
                 {/*Details Page*/}
