@@ -10,16 +10,23 @@ export const GameDetails = ({ games }) => {
 
     const game = games.find(x => x._id == gameId);
 
-    const addCommentHandler = () => {
-        console.log("submit");
+    const addCommentHandler = (e) => {
+        e.preventDefault();
+        console.log(comment);
+        //console.log("Test answear");
 
     };
 
     const onChange = (e) => {
         setComment(state => ({
+            ...state,
             [e.target.name]: e.target.value
         }));
     };
+
+    if (!game || !game.imageUrl) {
+        return <p>Данните за играта не са налични.</p>;
+    }
 
     return (
         <section id="game-details">
