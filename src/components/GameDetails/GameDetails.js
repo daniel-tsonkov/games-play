@@ -45,7 +45,7 @@ export const GameDetails = ({ games }) => {
             </div>
             {/* Bonus */}
             {/* Add Comment ( Only for logged-in users, which is not creators of the current game ) */}
-            {/* <article className="create-comment">
+            <article className="create-comment">
                 <label>Add new comment:</label>
                 <form className="form">
                     <textarea
@@ -59,7 +59,7 @@ export const GameDetails = ({ games }) => {
                         defaultValue="Add Comment"
                     />
                 </form>
-            </article> */}
+            </article>
         </section>
     );
 }
