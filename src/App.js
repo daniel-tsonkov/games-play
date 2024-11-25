@@ -16,6 +16,20 @@ import { Catalog } from './components/Catalog/Catalog';
 function App() {
     const [games, setGames] = useState([]);
 
+    const addComment = (gameId, comment) => {
+        //Ако се променя референцията винаги се създава НОВА РЕФЕРЕНЦИЯ
+        setGames(state => {
+            const game = state.find(x => x._id === gameId);
+            const comments = game.comments || [];
+            comments.push(comment);
+
+            return [
+                ...state.filter(x => x._id !== gameId),
+                { ...game, comments: comments },
+            ];
+        })
+    }
+
     useEffect(() => {
         gameServices.getAll()
             .then(result => {
@@ -40,7 +54,7 @@ function App() {
                 {/* Edit Page ( Only for the creator )*/}
                 <Route path='/edit' element={<Edit />} />
                 {/*Details Page*/}
-                <Route path='/catalog/:gameId' element={<GameDetails games={games} />} />
+                <Route path='/catalog/:gameId' element={<GameDetails games={games} addComment={addComment} />} />
                 {/* Catalogue */}
                 <Route path='/catalog' element={<Catalog games={games} />} />
             </Routes>

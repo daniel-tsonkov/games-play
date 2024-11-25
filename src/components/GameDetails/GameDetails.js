@@ -1,19 +1,21 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 
-export const GameDetails = ({ games }) => {
+export const GameDetails = ({
+    games,
+    addComment,
+}) => {
     const { gameId } = useParams();
     const [comment, setComment] = useState({
         username: '',
         comment: '',
     });
 
-    const game = games.find(x => x._id == gameId);
+    const game = games.find(x => x._id === gameId);
 
     const addCommentHandler = (e) => {
         e.preventDefault();
-        console.log(comment);
-        //console.log("Test answear");
+        addComment(gameId, `${comment.username}: ${comment.comment}`);
 
     };
 
@@ -33,7 +35,7 @@ export const GameDetails = ({ games }) => {
             <h1>Game Details</h1>
             <div className="info-section">
                 <div className="game-header">
-                    <img className="game-img" src={game.imageUrl} />
+                    <img className="game-img" src={game.imageUrl} alt="Game" />
                     <h1>{game.title}</h1>
                     <span className="levels">MaxLevel: {game.maxLevel}</span>
                     <p className="type">{game.category}</p>
