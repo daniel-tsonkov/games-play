@@ -54,8 +54,9 @@ export const GameDetails = ({
                             </li>
                         )}
                     </ul>
-                    {/* Display paragraph: If there are no games in the database */}
-                    <p className="no-comment">No comments.</p>
+                    {!game.comments &&
+                        < p className="no-comment">No comments.</p>
+                    }
                 </div>
                 {/* Edit/Delete buttons ( Only for creator of this game )  */}
                 <div className="buttons">
@@ -94,6 +95,6 @@ export const GameDetails = ({
                     />
                 </form>
             </article>
-        </section>
+        </section >
     );
 }
