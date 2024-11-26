@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import uniqid from 'uniqid';
 
 import * as gameServices from './services/gameService';
@@ -16,11 +16,12 @@ import { Catalog } from './components/Catalog/Catalog';
 
 function App() {
     const [games, setGames] = useState([]);
+    const navigate = useNavigate();
 
     const addComment = (gameId, comment) => {
         //Ако се променя референцията винаги се създава НОВА РЕФЕРЕНЦИЯ
         setGames(state => {
-            const game = state.find(x => x._id === gameId);
+            const game = state.find(x => x._id == gameId);
             const comments = game.comments || [];
             comments.push(comment);
 
@@ -29,7 +30,7 @@ function App() {
                 { ...game, comments: comments },
             ];
         })
-    }
+    };
 
     const addGameHandler = (gameData) => {
         setGames(state => [
@@ -39,6 +40,8 @@ function App() {
                 _id: uniqid(),
             },
         ]);
+
+        navigate('/catalog');
     };
 
     useEffect(() => {
