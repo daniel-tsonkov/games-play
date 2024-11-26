@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom';
+import uniqid from 'uniqid';
 
 import * as gameServices from './services/gameService';
 
@@ -33,9 +34,12 @@ function App() {
     const addGameHandler = (gameData) => {
         setGames(state => [
             ...state,
-            gameData,
-        ])
-    }
+            {
+                ...gameData,
+                _id: uniqid(),
+            },
+        ]);
+    };
 
     useEffect(() => {
         gameServices.getAll()
