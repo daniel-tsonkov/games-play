@@ -8,11 +8,14 @@ import './App.css';
 import { Header } from './components/Header/Header';
 import { Home } from './components/Home/Home';
 import { Login } from './components/Login/Login';
-import { Register } from './components/Register/Register';
 import { CreateGame } from './components/CreateGame/CreateGame';
 import { Edit } from './components/Edit/Edit';
 import { GameDetails } from './components/GameDetails/GameDetails';
 import { Catalog } from './components/Catalog/Catalog';
+
+import { Register } from './components/Register/Register';
+
+//import('./components/Register/Register');
 
 function App() {
     const [games, setGames] = useState([]);
