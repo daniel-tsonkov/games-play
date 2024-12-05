@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import uniqid from 'uniqid';
 
@@ -65,7 +65,11 @@ function App() {
                 {/* Login Page ( Only for Guest users ) */}
                 <Route path='/login' element={<Login />} />
                 {/* Register Page ( Only for Guest users ) */}
-                <Route path='/register' element={<Register />} />
+                <Route path='/register' element={
+                    <Suspense fallback={<span>Loading...</span>}>
+                        <Register />
+                    </Suspense>
+                } />
                 {/* Create Page ( Only for logged-in users ) */}
                 <Route path='/create' element={<CreateGame addGameHandler={addGameHandler} />} />
                 {/* Edit Page ( Only for the creator )*/}
