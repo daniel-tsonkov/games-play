@@ -4,7 +4,6 @@ import uniqid from 'uniqid';
 
 import * as gameServices from './services/gameService';
 
-import './App.css';
 import { Header } from './components/Header/Header';
 import { Home } from './components/Home/Home';
 import { Login } from './components/Login/Login';
@@ -14,6 +13,9 @@ import { GameDetails } from './components/GameDetails/GameDetails';
 import { Catalog } from './components/Catalog/Catalog';
 
 import { Register } from './components/Register/Register';
+import './App.css';
+
+//const Register = lazy(() => import('./components/Register/Register'));
 
 //import('./components/Register/Register');
 
