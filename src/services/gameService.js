@@ -1,3 +1,5 @@
+import { request } from "./requester";
+
 const baseUrl = 'http://localhost:3030';
 
 //asinc
@@ -8,6 +10,5 @@ const baseUrl = 'http://localhost:3030';
 
 //promice
 export const getAll = () => {
-    return fetch(`${baseUrl}/data/games`)
-        .then(res => res.json())
+    return request(`${baseUrl}/data/games`)
 }
