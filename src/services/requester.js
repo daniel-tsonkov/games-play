@@ -1,4 +1,4 @@
-export const request = async (method, url, data) => {
+const request = async (method, url, data) => {
     try {
         let buildRequest;
 
@@ -22,3 +22,9 @@ export const request = async (method, url, data) => {
         console.log(error);
     }
 }
+
+export const get = request.bind({}, 'GET');
+export const post = request.bind({}, 'POST');
+export const patch = request.bind({}, 'PATCH');
+export const put = request.bind({}, 'PUT');
+export const del = request.bind({}, 'DELETE');
