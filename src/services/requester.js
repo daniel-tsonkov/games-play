@@ -2,7 +2,7 @@ export const request = async (method, url, data) => {
     try {
         let buildRequest;
 
-        if (method == 'GET') {
+        if (method === 'GET') {
             buildRequest = fetch(url);
         } else {
             buildRequest = fetch(url, {
@@ -13,7 +13,7 @@ export const request = async (method, url, data) => {
                 data: JSON.stringify(data),
             })
         }
-        const response = await buildRequest();
+        const response = await buildRequest;
 
         const result = await response.json();
 

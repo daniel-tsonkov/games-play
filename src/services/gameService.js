@@ -10,5 +10,5 @@ const baseUrl = 'http://localhost:3030';
 
 //promice
 export const getAll = () => {
-    return request(`${baseUrl}/data/games`)
+    return request('GET', `${baseUrl}/data/games`)
 }
