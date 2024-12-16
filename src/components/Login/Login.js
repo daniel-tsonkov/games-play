@@ -1,3 +1,5 @@
+import { login } from "../../services/authService";
+
 export const Login = () => {
     const onSubmit = (e) => {
         e.preventDefault();
@@ -7,10 +9,10 @@ export const Login = () => {
             password,
         } = Object.fromEntries(new FormData(e.target));
 
-        console.log(email);
-        console.log(password);
-
-
+        login(email, password)
+            .then(authData => {
+                console.log(authData);
+            })
     };
 
     return (
