@@ -7,10 +7,13 @@ export const request = async (method, url, data) => {
         } else {
             buildRequest = fetch(url, {
                 method,
-
+                headers: {
+                    'content-type': 'application/json'
+                },
+                data: JSON.stringify(data),
             })
         }
-        const response = await request;
+        const response = await buildRequest();
 
         const result = await response.json();
 
